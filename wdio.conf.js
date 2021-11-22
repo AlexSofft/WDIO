@@ -24,7 +24,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/download.spec.js' //        './test/specs/**/*.js'
+        './test/specs/datepicker.spec.js' //        './test/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [

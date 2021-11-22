@@ -6,4 +6,3 @@ export const setText = async (element, text) => {
     await element.setValue(text);
 }
 
-
