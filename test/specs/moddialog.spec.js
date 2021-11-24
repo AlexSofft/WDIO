@@ -1,16 +1,16 @@
-import ModDialogPage from '../../pages/moddialog.page';
-import ModDialogSteps from '../../steps/moddialog.steps';
+import modDialogPage from '../../pages/moddialog.page';
+import modDialogSteps from '../../steps/moddialog.steps';
 
 describe('Modal dialogs', () => {
     beforeEach(() => {
-        ModDialogPage.open()
+        modDialogPage.open()
     })
 
     it('should check small modal', async () => {
-        await ModDialogSteps.checkSmallModal()
+        await modDialogSteps.checkSmallModal()
     });
 
     it('should check large modal', async () => {
-        await ModDialogSteps.checkLargeModal()
+        await modDialogSteps.checkLargeModal()
     });
 });

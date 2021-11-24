@@ -1,23 +1,25 @@
-import AccordianPage from '../pages/accordian.page';
+import accordianPage from '../pages/accordian.page';
 
 class AccordianSteps {
 
     async checkFirstSection() {
-        await AccordianPage.shouldContainText(AccordianPage.firstSectionText, 'Lorem Ipsum is simply dummy text')
+        await accordianPage.shouldContainText(accordianPage.firstSectionText, 'Lorem Ipsum is simply dummy text')
     }
 
     async checkSecondSection() {
-        await AccordianPage.clickFirstSection()
-        await AccordianPage.clickSecondSection()
-        await AccordianPage.waitForDisplayed(AccordianPage.secondSectionText, 3000)
-        await AccordianPage.shouldContainText(AccordianPage.secondSectionText, 'Contrary to popular belief')
+        await accordianPage.clickFirstSection()
+        await accordianPage.clickSecondSection()
+        await (await accordianPage.secondSectionText).waitForDisplayed({ timeout: 3000 })
+        // await AccordianPage.waitForDisplayed(AccordianPage.secondSectionText, 3000)
+        await accordianPage.shouldContainText(accordianPage.secondSectionText, 'Contrary to popular belief')
     }
 
     async checkThirdSection() {
-        await AccordianPage.clickSecondSection()
-        await AccordianPage.clickThirdSection()
-        await AccordianPage.waitForDisplayed(AccordianPage.thirdSectionText, 3000)
-        await AccordianPage.shouldContainText(AccordianPage.thirdSectionText, 'It is a long established fact that')
+        await accordianPage.clickSecondSection()
+        await accordianPage.clickThirdSection()
+        await (await accordianPage.secondSectionText).waitForDisplayed({ timeout: 3000 })
+        // await AccordianPage.waitForDisplayed(AccordianPage.thirdSectionText, 3000)
+        await accordianPage.shouldContainText(accordianPage.thirdSectionText, 'It is a long established fact that')
     }
 }
 

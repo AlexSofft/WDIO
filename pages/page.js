@@ -35,6 +35,13 @@ export default class Page {
         }, { timeout: time, timeoutMsg: `Element is not displayed after ${time} seconds` });
     }
 
+    async waitForElemAttrEqVal(element, attr, value, time) {
+        await browser.waitUntil(async () => {
+            console.log(`LOGG  ${await element.getAttribute(attr)} text  ${await element.getText()}`)
+            return (await element.getAttribute(attr)) == value
+        }, { timeout: time, timeoutMsg: `Attribute ${attr} is not equal after ${time} seconds` }) //
+    }
+
     open(path) {
         return browser.url(`https://demoqa.com/${path}`)
     }

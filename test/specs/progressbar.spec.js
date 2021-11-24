@@ -13,5 +13,4 @@ describe('ProgressBar', () => {
     it('new window should contains text', async () => {
         await ProgressBarSteps.verifyReset()
     });
-
 });

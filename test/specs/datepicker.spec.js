@@ -1,12 +1,16 @@
-import DatePickerPage from '../../pages/datepicker.page';
-import DatePickerSteps from '../../steps/datepicker.steps';
+import datePickerPage from '../../pages/datepicker.page';
+import datePickerSteps from '../../steps/datepicker.steps';
 
 describe('DatePicker', () => {
     beforeEach(() => {
-        DatePickerPage.open()
+        datePickerPage.open()
     })
 
     it('should set date', async () => {
-        await DatePickerSteps.checkMonthYearInput()
+        await datePickerSteps.checkMonthYearInput()
+    });
+
+    it('should set date and time', async () => {
+        await datePickerSteps.checkMonthYearTimeInput()
     });
 });

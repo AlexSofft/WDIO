@@ -1,14 +1,14 @@
-import AccordianPage from '../../pages/accordian.page';
-import AccordianSteps from '../../steps/accordian.steps';
+import accordianPage from '../../pages/accordian.page';
+import accordianSteps from '../../steps/accordian.steps';
 
 describe('Accordian', () => {
     beforeEach(() => {
-        AccordianPage.open()
+        accordianPage.open()
     })
 
     it('should contain text', async () => {
-        await AccordianSteps.checkFirstSection()
-        await AccordianSteps.checkSecondSection()
-        await AccordianSteps.checkThirdSection()
+        await accordianSteps.checkFirstSection()
+        await accordianSteps.checkSecondSection()
+        await accordianSteps.checkThirdSection()
     });
 });
