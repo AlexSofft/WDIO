@@ -11,7 +11,7 @@ class DatePickerSteps {
     }
 
     async checkMonthYearTimeInput() {
-        await datePickerPage.clickDatePickerMonthYearInput()
+        await datePickerPage.clickDateAndTimePickerInput()
         browser.keys(["Control", "A", "Space"]);
         await datePickerPage.setMonthYear('01/21/2010')
         browser.keys('Enter');    
