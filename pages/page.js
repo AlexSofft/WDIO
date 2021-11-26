@@ -17,6 +17,12 @@ export default class Page {
         await expect(element).toHaveAttrContaining(`${attr}`, `${value}`)
     }
 
+    async shouldHaveBackgroundColor(element, color) {
+        let background = await element.getCSSProperty('background-color')
+        console.log(`LOGG ${await background.value}`)
+        await expect(await background.value).toEqual(color)
+    }
+
     //select
     async selectElementByAttrValue(element, attr, value) {
         await (await element).selectByAttribute(attr, value)
