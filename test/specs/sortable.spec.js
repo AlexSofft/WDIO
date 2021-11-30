@@ -8,7 +8,6 @@ describe('Sortable', () => {
 
     it('should reverse order', async () => {
         await sortableSteps.reverseOrder()
-        // await browser.pause(2000)
     });
 
     

@@ -1,3 +1,41 @@
 как быть с chai
 как парсить датапикер через листы или конкретно покаждому?
 если первый тест падает остальные?
+
+api: https://github.com/osandadeshan/webdriverio-api-automation-demo/blob/master/test/specs/mockApi.spec.js
+     https://www.youtube.com/watch?v=BRXZJ_mOeYQ&ab_channel=Codemify
+     1. npm in axios, chai, mocha(run tests)
+
+
+AXIOS: https://axios-http.com/docs/config_defaults
+Barier token:
+1. let token=localStorage.getItem("token");
+var myAxios=axios.create({
+  baseURL: 'https://localhost:5001',
+  timeout: 700,
+  headers: {'Authorization': `bearer ${token}`}
+});
+
+export default myAxios;
+
+2. import axios from 'axios';
+import { getToken } from '../hooks/useToken';
+
+const axiosInstance = axios.create({
+  baseURL: process.env.REACT_APP_BASE_URL,
+});
+
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = getToken();
+    const auth = token ? `Bearer ${token}` : '';
+    config.headers.common['Authorization'] = auth;
+    return config;
+  },
+  (error) => Promise.reject(error),
+);
+
+export default axiosInstance;
+
+3. Rather than adding it to every request, you can just add it as a default config like so.
+axios.defaults.headers.common['Authorization'] = `Bearer ${access_token}` 
