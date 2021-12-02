@@ -1,14 +1,13 @@
 import bookstoreService from '../services/bookstore.service'
 
-const userName = 'Eric118';
+const userName = 'Eric124';
 const createUser = "/Account/v1/User"
 const authorizeUser = "/Account/v1/Authorized"
 const generateToken = "/Account/v1/GenerateToken"
 const userGET = (UUID) => { return `/Account/v1/User/${UUID}` }
 
-
 let userId; //UUID
-let token; 
+let token;
 
 const loginData = {
     "userName": `${userName}`,
@@ -24,10 +23,10 @@ const headers = {
     "content-type": "application/json",
 };
 
-const headersGET = (tkn) => {
-    return  {
+const headersBarierToken = (tkn) => {
+    return {
         "content-type": "application/json",
-         "Authorization": `Bearer ${tkn}`
+        "Authorization": `Bearer ${tkn}`
     };
 }
 
@@ -78,7 +77,7 @@ class AccountSteps {
     }
 
     async getUserByUUID() {
-        const response = await browser.call(async () => await bookstoreService.get(userGET(userId), headersGET(token)))
+        const response = await browser.call(async () => await bookstoreService.get(userGET(userId), headersBarierToken(token)))
         console.log(`LOG getUser ${Object.keys(response.data)}`)
         console.log(`LOG getUserID ${response.data.userId}`)
         await expect(await response.status).toEqual(200);
@@ -86,10 +85,9 @@ class AccountSteps {
     }
 
     async deleteUserByUUID() {
-        const response = await browser.call(async () => await bookstoreService.delete(userGET(userId), headersGET(token)))
+        const response = await browser.call(async () => await bookstoreService.delete(userGET(userId), {}, headersBarierToken(token)))
         console.log(`LOG getUser keys ${Object.keys(response)}`)
         console.log(`LOG getUser values ${Object.values(response)}`)
-        console.log(`LOG getUser data ${JSON.stringify(response.data)}`)
         console.log(`LOG status ${response.status}`)
         await expect(await response.status).toEqual(204);
         await expect(await response.statusText).toEqual('No Content');

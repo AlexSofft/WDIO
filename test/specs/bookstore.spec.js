@@ -1,34 +1,29 @@
 import bookstoreSteps from '../../steps/bookstore.steps'
 
+describe('Books suite', () => {
 
-describe('Book store suite', () => {
-
-    it('create new user with success', async () => {
+    it('get books', async () => {
         await bookstoreSteps.getBooks()
     })
 
-    // it('create existing user with error message', async () => {
-    //     await accountSteps.createExistingUser()
-    // })
+    it('get book', async () => {
+        await bookstoreSteps.getBook()
+    })
 
-    // it('authorize user', async () => {
-    //     await accountSteps.login()
-    // })
+    it('add books', async () => {
+        await bookstoreSteps.addBooks()
+    })
 
-    // it('fail to authorize user', async () => {
-    //     await accountSteps.failLogin()
-    // })
+    it('replace book', async () => {
+        await bookstoreSteps.replaceBook()
+    })
 
-    // it('generate token', async () => {
-    //     await accountSteps.generateToken()
-    // })
+    it('delete book', async () => {
+        await bookstoreSteps.deleteBookByUUID()
+    })
 
-    // it('fail to generate token', async () => {
-    //     await accountSteps.failToGenerateToken()
-    // })
-
-    // it('get user bu UUID', async () => {
-    //     await accountSteps.getUserByUUID()
-    // })
+    it('delete all books', async () => {
+        await bookstoreSteps.deleteAllBooksByUUID()
+    })
 
 });
